@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audit Log</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .nav { margin-bottom: 2em; }
+        .nav a { margin-right: 1em; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="{{ url_for('index') }}">Home</a>
+    </div>
+    <h1>Book Audit Log (from MongoDB)</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Operation</th>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.audit_timestamp.strftime('%Y-%m-%d %H:%M:%S') }} UTC</td>
+                <td>{{ record.operation }}</td>
+                <td>{{ record.Book_ID }}</td>
+                <td>{{ record.Title }}</td>
+                <td>{{ record.Author }}</td>
+                <td>{{ record.Publisher }}</td>
+                <td>{{ record.Status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

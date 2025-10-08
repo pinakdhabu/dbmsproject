@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View All Students</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .nav { margin-bottom: 2em; }
+        .nav a { margin-right: 1em; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('add_student') }}">Add New Student</a>
+    </div>
+    <h1>All Students</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.Stud_ID }}</td>
+                <td>{{ student.Name }}</td>
+                <td>{{ student.Dept }}</td>
+                <td>{{ student.Year }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
