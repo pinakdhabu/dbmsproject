@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Issue a Book</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        form { display: flex; flex-direction: column; width: 300px; }
+        label { margin-top: 1em; }
+        input, select { padding: 0.5em; margin-top: 0.5em; }
+        button { margin-top: 1.5em; padding: 0.7em; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .nav { margin-bottom: 2em; }
+        .nav a { margin-right: 1em; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="{{ url_for('index') }}">Home</a>
+    </div>
+    <h1>Issue a Book</h1>
+    <form action="{{ url_for('issue_book') }}" method="post">
+        <label for="book_id">Select Book:</label>
+        <select id="book_id" name="book_id" required>
+            {% for book in books %}
+                <option value="{{ book.Book_ID }}">{{ book.Title }} (ID: {{ book.Book_ID }})</option>
+            {% endfor %}
+        </select>
+
+        <label for="stud_id">Select Student:</label>
+        <select id="stud_id" name="stud_id" required>
+            {% for student in students %}
+                <option value="{{ student.Stud_ID }}">{{ student.Name }} (ID: {{ student.Stud_ID }})</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Issue Book</button>
+    </form>
+</body>
+</html>

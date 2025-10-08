@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fine Records</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .nav { margin-bottom: 2em; }
+        .nav a { margin-right: 1em; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="{{ url_for('index') }}">Home</a>
+    </div>
+    <h1>Fine Records</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Fine ID</th>
+                <th>Student Name</th>
+                <th>Amount (₹)</th>
+                <th>Fine Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fine in fines %}
+            <tr>
+                <td>{{ fine.Fine_ID }}</td>
+                <td>{{ fine.Name }}</td>
+                <td>{{ fine.Amount }}</td>
+                <td>{{ fine.FineDate }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

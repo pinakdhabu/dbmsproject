@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management System</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; background-color: #f9f9f9; }
+        h1 { color: #333; }
+        .nav { margin-bottom: 2em; }
+        .nav a { margin-right: 1em; text-decoration: none; background-color: #007bff; color: white; padding: 0.5em 1em; border-radius: 5px; }
+        .nav a:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Library Management System</h1>
+    <p>SPPU DBMS Mini Project</p>
+    <div class="nav">
+        <a href="{{ url_for('view_books') }}">View All Books</a>
+        <a href="{{ url_for('add_book') }}">Add New Book</a>
+        <a href="{{ url_for('issue_book') }}">Issue a Book</a>
+        <a href="{{ url_for('return_book') }}">Return a Book</a>
+        <a href="{{ url_for('fine_records') }}">View Fines</a>
+        <a href="{{ url_for('audit_log') }}">View Audit Log</a>
+        <hr>
+        <a href="{{ url_for('view_students') }}">View Students</a>
+        <a href="{{ url_for('add_student') }}">Add Student</a>
+    </div>
+</body>
+</html>
